@@ -8,7 +8,7 @@ G21 (set units to mm)
 G90 (set positioning to absolute)
 G10 P1 X-16.5 Y0 Z0 (Designate T0 Offset)
 G10 P2 X16.5 Y0 Z0 (Designate T1 Offset)
-G55 (Recall offset cooridinate system)
+G54 (Recall offset cooridinate system)
 (**** begin homing ****)
 G162 X Y F2500 (home XY axes maximum)
 G161 Z F1100 (home Z axis minimum)
@@ -19,12 +19,12 @@ M132 X Y Z A B (Recall stored home offsets for XYZAB axis)
 (**** end homing ****)
 G1 X112 Y-73 Z155 F3300.0 (move to waiting position)
 G130 X0 Y0 A0 B0 (Lower stepper Vrefs while heating)
-M109 S120 T1 (set HBP temperature)
-M6 T1 (wait for toolhead, and HBP to reach temperature)
-M104 S225 T1 (set extruder temperature)
-M6 T1 (wait for toolhead, and HBP to reach temperature)
+M109 S120 T0 (set HBP temperature)
+M6 T0 (wait for toolhead, and HBP to reach temperature)
+M104 S225 T0 (set extruder temperature)
+M6 T0 (wait for toolhead, and HBP to reach temperature)
 G130 X127 Y127 A127 B127 (Set Stepper motor Vref to defaults)
-M108 R3.0 T1
+M108 R3.0 T0
 G0 X112 Y-73 (Position Nozzle)
 G0 Z0.2      (Position Height)
 M108 R4.0    (Set Extruder Speed)
@@ -56242,8 +56242,8 @@ M104 S0
 M73 P100 (end  build progress )
 G0 Z155
 M18
-M109 S0 T1
-M104 S0 T1
+M109 S0 T0
+M104 S0 T0
 G162 X Y F2500
 M18
 M70 P5 ( We <3 Making Things!)
